@@ -1,0 +1,161 @@
+﻿@page
+@model MediaBazaarSite.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Profile page";
+}
+
+<div class="profile-con">
+
+    <div class="profile-header">
+        <h1>Hello: @Model.FullName</h1>
+    </div>
+
+
+    <div class="inside-profile-con">
+
+        <form id="Profile-form" method="post">
+
+            <div>
+                <h1>Basic Information</h1>
+                <h3>@Model.Message</h3>
+            </div>
+
+                <div>
+                    <label asp-for="updateUser.firstName">First Name</label>
+                    <span asp-validation-for="updateUser.firstName"></span>
+                    <input asp-for="updateUser.firstName" type="text" value="@Model.Employee.firstName" readonly/>
+
+                    <label asp-for="updateUser.lastName">Last Name</label>
+                    <span asp-validation-for="updateUser.lastName"></span>
+                    <input asp-for="updateUser.lastName" type="text" value="@Model.Employee.lastName" readonly/>
+
+                    <label asp-for="updateUser.email">Email</label>
+                    <span asp-validation-for="updateUser.email"></span>
+                    <input asp-for="updateUser.email" type="email" value="@Model.Employee.email" readonly/>
+
+                    <label asp-for="updateUser.phoneNumber">Phone Number</label>
+                    <span asp-validation-for="updateUser.phoneNumber"></span>
+                    <input asp-for="updateUser.phoneNumber" type="number" value="@Model.Employee.phoneNumber" readonly/>
+
+                    <label asp-for="updateUser.street">Street</label>
+                    <span asp-validation-for="updateUser.street"></span>
+                    <input asp-for="updateUser.street" type="text" value="@Model.Employee.address[0]" readonly/>
+
+                    <label asp-for="updateUser.postalCode">Postal Code</label>
+                    <span asp-validation-for="updateUser.postalCode"></span>
+                    <input asp-for="updateUser.postalCode" type="text" value="@Model.Employee.address[1]" readonly/>
+
+                    <label asp-for="updateUser.nationality">Nationality</label>
+                    <span asp-validation-for="updateUser.nationality"></span>
+                    <input asp-for="updateUser.nationality" type="text" value="@Model.Employee.nationality" readonly/>
+
+@*                     <label asp-for="updateUser.dateOfBirth">Date of Birth</label>
+                    <span asp-validation-for="updateUser.dateOfBirth"></span>
+                    <input asp-for="updateUser.dateOfBirth" type="date" value="@Model.Employee.dateOfBirth.ToString()" max="@DateTime.Now.ToString("yyyy-MM-dd")" readonly required /> *@
+
+                    <label asp-for="updateUser.bsn">BSN</label>
+                    <span asp-validation-for="updateUser.bsn"></span>
+                    <input asp-for="updateUser.bsn" type="text" value="@Model.Employee.bsn" readonly />
+
+                </div>
+@* 
+            <div>
+                <h1>Emergency Information</h1>
+            </div>
+
+            <div>
+
+                <label>Emergency Contact</label>
+                <span asp-validation-for="updateUser.EmergencyContact"></span>
+                <input type="text" name="emergencyContact" value="@Model.Employee.emergencyContact" readonly required />
+
+                <label>Emergency Name</label>
+                <span asp-validation-for="updateUser.EmergencyName"></span>
+                <input type="text" name="emergencyName" value="@Model.Employee.emergencyName" readonly required />
+
+                <label>Emergency Relationship</label>
+                <span asp-validation-for="updateUser.EmergencyTypeRelationship"></span>
+                <input type="text" name="emergencyTypeRelationship" value="@Model.Employee.emergencyTypeRelationship" readonly required />
+
+            </div> *@
+
+            <input type="submit" value="Save" id="Profile-button" onclick="showConfirmation()" />
+
+            <button type="button" id="Profile-button" onclick="removeReadonly()">Change</button>
+        </form>
+
+        <div id="Work-Info-con">
+
+            <div>
+                <h1>Work Information</h1>
+            </div>
+
+            <div class="work-details">
+
+                <label for="position">Position</label>
+                <input type="text" name="position" value="@Model.Employee.position" readonly />
+
+                <label for="department">Department</label>
+                <input type="text" name="department" value="@Model.Employee.department.Name" readonly />
+
+                <label for="contract">Contract</label>
+                <input type="text" name="contract" value="@Model.Employee.contract.contractType" readonly />
+
+                <label for="language">Language</label>
+                @if (Model.Employee.language == true)
+                {
+                    <input type="text" name="language" value="English and Dutch" readonly />
+                }else{
+                    <input type="text" name="language" value="English" readonly />
+                }
+
+            </div>
+
+        </div>
+
+        <form id="Emergency-form" >
+
+            <div>
+                <h1>Emergency Information</h1>
+            </div>
+
+            <div>
+ 
+                <label>Emergency Contact</label>
+                <input type="text" name="emergencyContact" value="@Model.Employee.emergencyContact" readonly required />
+
+                <label>Emergency Name</label>
+                <input type="text" name="emergencyName" value="@Model.Employee.emergencyName" readonly required />
+
+                <label>Emergency Relationship</label>
+                <input type="text" name="emergencyTypeRelationship" value="@Model.Employee.emergencyTypeRelationship" readonly required />
+
+            </div>
+@* 
+            <input type="submit" value="Update""/>
+            <button id="Emergency-button">Change</button> *@
+        </form>
+
+    </div>
+</div>
+
+
+
+<script>
+    function showConfirmation() {
+        var confirmation = confirm("Are you sure you want to save your account?");
+        if (confirmation) {
+            document.getElementById("Profile-button").value = "Save";
+            document.getElementById("Profile-button").removeAttribute("onclick");
+            document.getElementById("Profile-button").click();
+        }
+    }
+</script>
+
+<script>
+    // Get the date string in the format "yyyy-MM-ddTHH:mm:ss"
+    var formattedDate = "@Model.Employee.dateOfBirth.ToString()";
+
+    // Set the formatted date as the value of the input
+    document.getElementById('updateUser_dateOfBirth').value = formattedDate.substring(0, 10);
+</script>

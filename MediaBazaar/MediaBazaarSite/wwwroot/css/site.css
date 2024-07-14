@@ -1,0 +1,359 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+:root {
+    --green: #B7FEAE;
+    --blue: #333B6A;
+    --lightBlue: #CAFBFF;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+/*    display: grid;
+    grid-template-areas: "topbar topbar topbar"
+        "content content content"
+        "footer footer footer";
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 10% auto 10%;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container {
+    grid-area: content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+header, footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--blue);
+    color: white;
+}
+
+header {
+    grid-area: topbar;
+    border-bottom: 1px solid black;
+}
+
+footer {
+    border-top: 1px solid black;
+    grid-area: footer;
+}
+
+nav, footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.main {
+    display: contents;
+    min-width: 100%;
+}
+a{
+    text-decoration: none !important;
+    color: var(--lightBlue);
+}
+
+.logo-con {
+    width: 10%;
+    text-align: left;
+}
+.logo-con img{
+    width: 100%;
+}
+
+/*    .logo-con img {
+        width: 100%;
+    }*/
+
+.nav-links-con {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: .05;
+}
+
+.nav-links-con a:hover, footer a:hover{
+    color: var(--green);
+}
+.main {
+    display: contents;
+    min-width: 100%;
+}
+
+
+
+
+
+/*          LOGIN             */
+input{
+    background-color: lightgray;
+}
+
+.login-con {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+.login-con a{
+    color: var(--blue);
+}
+.login-con a:hover{
+    text-decoration: underline !important;
+}
+#Login-form{
+    display: inherit;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 30%;
+    padding: 1rem;
+}
+#Login-form input{
+    padding: .7rem;
+    margin: .5rem;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+#Login-button{
+    font-weight: 800;
+    font-size: 20px;
+}
+#Login-button, #Profile-button, #Emergency-button, #PChanger-button{
+    border: none !important; 
+    color: var(--blue);
+    background-color: var(--lightBlue);
+}
+#Login-button:hover, #Profile-button:hover, #Emergency-button:hover, .password-changer-con #PChanger-button:hover{
+    color: var(--blue);
+    background-color: var(--green);
+    cursor: pointer;
+}
+.password-changer-con #PChanger-button {
+    color: var(--green);
+    background-color: var(--blue);
+}
+
+
+.profile-con {
+    display: flex;
+    align-items: center;
+    justify-contentL center;
+    flex-direction: column;
+    width: 100%;
+}
+.inside-profile-con{
+    display: inherit;
+}
+.profile-con h1{
+    padding: 1rem;
+}
+#Profile-form, #Emergency-form, #Work-Info-con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+}
+
+#Profile-form input, #Emergency-form input, #Work-Info-con input, #Password-Changer input {
+    padding: .7rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    background-color: lightgray;
+    width: 100%;
+}
+#Profile-button, #Emergency-button{
+    min-width: 50%;
+    padding: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+/*            WORK SCHEDULE             */
+
+.schedule-con{
+    width: 75%;
+    padding: 1rem;
+}
+/* Month header */
+.month {
+    padding: 70px 25px;
+    width: 100%;
+    background: var(--blue);
+    text-align: center;
+    color: var(--lightBlue);
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+/* Next button */
+.month .next {
+  float: right;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color:#ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:20px;
+  color: black;
+}
+
+.days li:first-child, .days li:nth-child(2){
+  color: lightgray;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important
+}
+
+
+
+
+
+
+
+
+
+#Previous-Month input, #Next-Month input{
+    padding: 1rem;
+    border: none;
+    color: var(--blue);
+    background-color: var(--lightBlue);
+}   
+#Previous-Month input:hover , #Next-Month input:hover{
+    background-color: var(--green);
+}
+
+
+
+table {
+    border: 1px solid black;
+}
+
+td{
+    padding: 1rem;
+    border: 1px solid black;
+    text-align: center;
+}
+
+td:hover{
+    background-color: var(--green);
+}
+
+
+#workDay{
+    color: var(--blue);
+}
+
+
+
+
+
+
+
+
+
+/*PRODUCT*/
+
+.products-con{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 1rem;
+    width: 100%;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.product form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

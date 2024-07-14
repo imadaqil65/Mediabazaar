@@ -1,0 +1,16 @@
+﻿@page
+@model MediaBazaarSite.Pages.ShiftDetailsModel
+@{
+}
+
+<div class="shift-con">
+
+    <h1>@Model.Message</h1>
+    <h1>Date : @Model.Date</h1>
+    @foreach (var shift in Model.shifts)
+    {
+        <h3>@shift.ShiftType</h3>
+    }
+
+
+</div>

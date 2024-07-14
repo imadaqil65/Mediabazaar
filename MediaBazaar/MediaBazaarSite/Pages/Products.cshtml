@@ -1,0 +1,34 @@
+﻿@page
+@model MediaBazaarSite.Pages.ProductsModel
+@{
+}
+
+<div class="products-con">
+
+    <h1>@Model.Message</h1>
+
+    @foreach (var item in Model.Products)
+    {
+        <div class="product">
+            <h1>Name: @item.name</h1>
+            <p>Price: @item.price</p>
+            <p>Brand: @item.brand</p>
+            <p>Stock: @item.stock</p>
+
+            <form method="post">
+                <input asp-for="Restock.ProductId" type="hidden" value="@item.productId" />
+
+                <label asp-for="Restock.Stock">Add Stock</label>
+                <span asp-validation-for="Restock.Stock"></span>
+                <input asp-for="Restock.Stock" type="number" value="1">
+
+                
+                <label asp-for="Restock.Message">Message</label>
+                <span asp-validation-for="Restock.Message"></span>
+                <textarea asp-for="Restock.Message"></textarea>
+
+                <button type="submit">Request Stock</button>
+            </form>
+        </div>
+    }
+</div>

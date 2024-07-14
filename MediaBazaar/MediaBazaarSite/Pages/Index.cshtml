@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="home-con">
+
+    <h1>Welcome @Model.Employee.GetName()</h1>
+    <h3>@Model.BDayMessage</h3>
+
+    <div id="message"></div>
+
+    @*<form method="post">
+        <button type="submit" id="startButton">Start Working</button>
+    </form>*@
+
+@*     <div>
+        <button id="startButton">Start Working</button>
+    </div> *@
+
+@*     <div>
+        <button id="stopButton">Take a quick break</button>
+    </div>
+    
+    <div>
+        <button id="resetButton" onclick="resetCountdown()">ResetTimer</button>
+    </div> *@
+
+@*     <form method="post">
+
+        <input type="submit" value="Stop working" hidden />
+
+    </form> *@
+
+</div>

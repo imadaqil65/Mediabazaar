@@ -1,0 +1,10 @@
+﻿@using Domain;
+@using Domain.EmployeeServices;
+@{
+    var initialDurationInSeconds = 4 * 67.5 * 60;
+    Layout = "_Layout";
+}
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+    document.documentElement.style.setProperty('--initial-duration', '@initialDurationInSeconds');
+</script>
